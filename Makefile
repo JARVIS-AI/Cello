@@ -1,7 +1,7 @@
 CC ?= gcc
 AR ?= ar
 
-VERSION = 2.0.3
+VERSION = 2.1.0
 PACKAGE = libCello-$(VERSION)
 
 BINDIR = ${PREFIX}/bin
@@ -121,7 +121,7 @@ $(DYNAMIC): $(OBJ)
 $(STATIC): $(OBJ)
 	$(AR) rcs $@ $(OBJ)
 
-obj/%.o: src/%.c | obj
+obj/%.o: src/%.c include/Cello.h | obj
 	$(CC) $< -c $(CFLAGS) -o $@
 
 obj:
